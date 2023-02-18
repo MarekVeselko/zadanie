@@ -1,8 +1,48 @@
 .home-component {
-  display: flex;
-  justify-content: center;
-  .custom-table {
-    margin-top: 60px;
-    width: 80%;
+  &__top-page {
+    display: flex;
+    flex-direction: column;
+    margin: 40px 10% 0;
+
+    &--filters {
+      margin-top: 20px;
+      form {
+        display: flex;
+        justify-content: space-between;
+
+        .search-dropdown {
+          height: 40px;
+        }
+
+        .search-field {
+          display: flex;
+          align-items: center;
+          height: 40px;
+
+          input {
+            height: 100%;
+          }
+        }
+      }
+
+
+
+    }
+
+    &--button-container {
+      align-self: flex-end;
+    }
+
   }
+
+  &__table-container {
+    display: flex;
+    justify-content: center;
+
+    .custom-table {
+      margin-top: 60px;
+      width: 80%;
+    }
+  }
+
 }

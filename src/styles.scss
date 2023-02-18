@@ -1,4 +1,8 @@
 @import url('./app/shared/styles/table.scss');
+@import url('./app/shared/styles/snackbar.scss');
+@import url('./app/shared/styles/icons.scss');
+@import url('./app/shared/styles/buttons.scss');
+
 
 
 html,
@@ -15,3 +19,8 @@ body {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.d-flex {
+  display: flex;
+}

@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { UntypedFormControl, FormControl, Validators, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Route, Router } from '@angular/router';
+import { catchError, of } from 'rxjs';
 import { Task } from 'src/app/shared/models/task.model';
+import { SnackbarService } from 'src/app/shared/services/snackbar.service';
 import { TaskService } from 'src/app/shared/services/task.service';
 
 @Component({
@@ -25,6 +27,7 @@ export class NewTaskComponent implements OnInit {
 
   constructor(private tasksService: TaskService,
     private cdr: ChangeDetectorRef,
+    private snackbarService: SnackbarService,
     private router: Router,
     private route: ActivatedRoute) { }
 
@@ -36,7 +39,12 @@ export class NewTaskComponent implements OnInit {
   }
 
   getItem(id: string) {
-    this.tasksService.getTask(id).subscribe(response => {
+    this.tasksService.getTask(id).pipe(catchError(err =>{
+      console.log(err);
+      this.snackbarService.openSnackBar('There was an error, refresh a page an try again.', 'error');
+      return of(null);
+    })).subscribe(response => {
+      if (!response) return;
       this.controls.name.patchValue(response.name);
       this.controls.description.patchValue(response.description);
       this.controls.done.patchValue(response.done);
@@ -52,8 +60,12 @@ export class NewTaskComponent implements OnInit {
       expiration: this.controls.date.value,
       done: this.controls.done.value,
     }
-    this.tasksService.createTask(data).subscribe((response => {
+    this.tasksService.createTask(data).pipe(catchError(err => {
+      this.snackbarService.openSnackBar('There was an error, refresh a page an try again.', 'error');
+      return of(null);
+    })).subscribe((response => {
       this.router.navigate(['../home'], { relativeTo: this.route });
+      this.snackbarService.openSnackBar('Task created successfully', 'success');
     }));
   }
 
@@ -68,6 +80,7 @@ export class NewTaskComponent implements OnInit {
 
     this.tasksService.editTask(data).subscribe((response => {
       this.router.navigate(['../../home'], { relativeTo: this.route });
+      this.snackbarService.openSnackBar('Task edited successfully', 'success');
     }));
   }
 
