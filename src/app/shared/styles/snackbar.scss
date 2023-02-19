@@ -1,7 +1,23 @@
+@import url('./variables.scss');
+
+.snack {
+  background-color: #fff;
+}
+
 .snackbar-error {
-  background-color: red;
+  background-color: #E96479;
+  color: #fff;
+}
+
+.snackbar-error .mat-button-wrapper {
+  color: #fff;
 }
 
 .snackbar-success {
-  background-color: green;
+  background-color: #7DB9B6;
+  color: #fff;
+}
+
+.snackbar-success .mat-button-wrapper {
+  color: #fff;
 }
