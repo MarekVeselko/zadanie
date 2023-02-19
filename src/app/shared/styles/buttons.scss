@@ -1,6 +1,63 @@
-.custom-button {
-  background-color: #3E54AC;
+@import url('./variables.scss');
+
+.button-primary {
+  height: 50px;
+  padding: 0 20px;
+  border-radius: 10px;
+  font-weight: 600;
   color: #fff;
-  height: 55px;
-  padding: 0 15px;
+  border: none;
+  background-color: #ed5684;
+}
+
+.button-primary:hover {
+  background-color: #be1c4c;
+}
+
+.button-secondary {
+  height: 50px;
+  padding: 0 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  color: #000;
+  border: none;
+  background-color: #DDDDDD;
+}
+
+.button-secondary:hover {
+  background-color: #807676;
+}
+
+.icon-button-add .mat-icon{
+  color: #ed5684;
+  font-size: 70px;
+}
+
+
+
+.back-button {
+  border: none;
+  background-color: transparent;
+  color: hsla(230, 46%, 34%, 0.9);
+}
+
+.back-button::before {
+    content: "< ";
+}
+
+.custom-radio-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-radio-group .mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: #6d9ac4;
+}
+
+.custom-radio-group .mat-radio-button.mat-accent .mat-radio-outer-circle {
+  border-color: #6d9ac4;
+}
+
+.set-done-btn {
+  color: #1a5b3d;
 }

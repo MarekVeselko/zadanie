@@ -1,7 +1,9 @@
-@import url('./app/shared/styles/table.scss');
+@import url('./app/shared/styles/variables.scss');
 @import url('./app/shared/styles/snackbar.scss');
+@import url('./app/shared/styles/forms.scss');
 @import url('./app/shared/styles/icons.scss');
 @import url('./app/shared/styles/buttons.scss');
+@import url('./app/shared/styles/table.scss');
 
 
 
@@ -17,10 +19,28 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #6d9ac4;
+}
+
+h2 {
+  color: #6d9ac4;
+  font-size: 21px !important;
+  font-weight: 600;
+}
 
 
 .d-flex {
   display: flex;
+}
+
+.mar-top-40 {
+  margin-top: 40px;
 }

@@ -2,10 +2,15 @@
   &__top-page {
     display: flex;
     flex-direction: column;
-    margin: 40px 10% 0;
+    margin: 40px 80px 0;
 
     &--filters {
+      background-color: #fff;
       margin-top: 20px;
+      padding: 40px 20px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+
       form {
         display: flex;
         justify-content: space-between;
@@ -38,11 +43,47 @@
   &__table-container {
     display: flex;
     justify-content: center;
+    margin: 0 80px;
 
     .custom-table {
-      margin-top: 60px;
-      width: 80%;
+      width: 100%;
     }
   }
+
+  .no-items {
+    padding: 20px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+}
+
+
+@media only screen and (max-width: 800px) {
+  .home-component {
+    &__top-page {
+      margin: 40px 5px 0;
+
+      &--filters form {
+        position: relative;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        .icon-button-add {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+        }
+      }
+    }
+
+    &__table-container {
+      margin: 0 5px;
+
+    }
+  }
+
+
+
 
 }

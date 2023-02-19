@@ -1,2 +1,28 @@
-<app-loading></app-loading>
-<router-outlet></router-outlet>
+<div class="app-component">
+  <div *ngIf="!token" class="login">
+    <div class="login-box">
+      <h2>Login</h2>
+      <div class="custom-form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" [disabled]="true" [value]="'max'" class="custom-input">
+      </div>
+
+      <div class="custom-form-group">
+        <label for="password">Password</label>
+        <input type="text" [value]="'geheim'"[disabled]="true"  id="password" class="custom-input">
+      </div>
+
+      <button class="button-primary" (click)="login()">Log in</button>
+    </div>
+  </div>
+
+  <div class="dashboard" *ngIf="token">
+    <h2 style="cursor: pointer;" [routerLink]="['./home']">Todo list</h2>
+    <button (click)="logout()" mat-icon-button>
+      <mat-icon>power_settings_new</mat-icon>
+    </button>
+  </div>
+
+  <app-loading></app-loading>
+  <router-outlet *ngIf="token"></router-outlet>
+</div>

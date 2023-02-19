@@ -39,7 +39,7 @@ export class NewTaskComponent implements OnInit {
   }
 
   getItem(id: string) {
-    this.tasksService.getTask(id).pipe(catchError(err =>{
+    this.tasksService.getTask(id).pipe(catchError(err => {
       console.log(err);
       this.snackbarService.openSnackBar('There was an error, refresh a page an try again.', 'error');
       return of(null);
@@ -86,12 +86,16 @@ export class NewTaskComponent implements OnInit {
 
 
   onSubmit(): void {
-    if (!this.form.valid) return;
-    if (!this.editMode) {
-      this.createTask();
+    if (this.form.valid) {
+      if (!this.editMode) {
+        this.createTask();
+      } else {
+        this.editTask();
+      }
     } else {
-      this.editTask();
+      this.form.markAllAsTouched();
     }
+
 
   }
 }

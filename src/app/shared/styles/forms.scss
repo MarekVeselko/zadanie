@@ -1,0 +1,31 @@
+@import url('./variables.scss');
+
+.custom-form {
+  -webkit-box-shadow: 1px 10px 42px -5px rgba(0, 0, 0, 0.54);
+  -moz-box-shadow: 1px 10px 42px -5px rgba(0, 0, 0, 0.54);
+  box-shadow: 1px 10px 42px -5px rgba(0, 0, 0, 0.54);
+  padding: 45px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.custom-datepicker {
+  display: flex;
+}
+
+.custom-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-input {
+  border: none;
+  border-bottom: 2px solid #6d9ac4;
+  padding: 0 15px;
+  height: 40px;
+  outline: none;
+}
+
+.custom-input-invalid {
+  border-bottom: 2px solid #EB1D36;
+}

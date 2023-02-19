@@ -83,4 +83,8 @@ export class HomeComponent implements OnInit {
       this.getItems();
     })
   }
+
+  isExpirated(task: Task): boolean {
+    return new Date(task.expiration) < new Date();
+  }
 }
